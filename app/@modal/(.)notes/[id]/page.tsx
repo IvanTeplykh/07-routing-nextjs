@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Modal from '../../../../../components/Modal/Modal';
-import NotePreview from '../../../../../components/NotePreview';
+import Modal from '../../../../components/Modal/Modal';
+import NotePreview from './NotePreview.client';
 
 export default function NotePreviewModal({ params }: { params: { id: string } }) {
   const router = useRouter();
