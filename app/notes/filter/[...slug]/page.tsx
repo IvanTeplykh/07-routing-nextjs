@@ -8,13 +8,13 @@ import NotesClient from "../../Notes.client";
 
 interface FilterPageProps {
   params: {
-    tag?: string[];
+    slug?: string[];
   };
 }
 
 export default async function FilterPage({ params }: FilterPageProps) {
-  const { tag: tagParams } = params;
-  const tag = tagParams && tagParams[0] !== "all" ? tagParams[0] : undefined;
+  const { slug: slugParams } = params;
+  const tag = slugParams && slugParams[0] !== "all" ? slugParams[0] : undefined;
 
   const queryClient = new QueryClient();
 
@@ -29,3 +29,4 @@ export default async function FilterPage({ params }: FilterPageProps) {
     </HydrationBoundary>
   );
 }
+

@@ -10,13 +10,20 @@ export const metadata = {
   description: 'NoteHub - Personal notes management',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ 
+  children,
+  modal 
+}: { 
+  children: ReactNode;
+  modal: ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
         <TanStackProvider>
           <Header />
           {children}
+          {modal}
           <Footer />
           <Toaster />
         </TanStackProvider>
@@ -24,3 +31,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
