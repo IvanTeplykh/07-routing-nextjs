@@ -7,13 +7,11 @@ import { fetchNotes } from "../../../../lib/api";
 import NotesClient from "./Notes.client";
 
 interface FilterPageProps {
-  params: {
-    slug?: string[];
-  };
+  params: Promise<{ slug: string[] }>;
 }
 
 export default async function FilterPage({ params }: FilterPageProps) {
-  const { slug: slugParams } = params;
+  const { slug: slugParams } = await params;
   const tag = slugParams && slugParams[0] !== "all" ? slugParams[0] : undefined;
 
   const queryClient = new QueryClient();
@@ -29,4 +27,3 @@ export default async function FilterPage({ params }: FilterPageProps) {
     </HydrationBoundary>
   );
 }
-
